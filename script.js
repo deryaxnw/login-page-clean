@@ -14,6 +14,8 @@ const icon = document.getElementById('mode_icon')
 form.addEventListener('submit' ,function(event){
    event.preventDefault(); 
 // ---------------------------------------
+
+
 // capturar valor
 const emailvalor = email.value;
 
@@ -29,31 +31,46 @@ span.style.display = "none"
    span.style.display = "block"
    span.style.color = "red"
 }
-
+   // VALIDANDO A SENHAA
 const senhaValidate = (senhavalor) => {
-   if(password.value.length < 8){
-      password.style.border = "1px solid red"
+
+   if(senhavalor.value.length < 8){
+      senhavalor.style.border = "1px solid red"
      secondspan.style.display = "block"
       secondspan.style.color = "red"
+      return false
 
    } else {
-      password.style.border = "1px solid green"
+      senhavalor.style.border = "1px solid green"
       secondspan.style.display = "none"
+      return true
    }
 }
    
 
-   const senhavalor = password.value;
+const senhavalor = password.value;
 
-   const passvalid = senhaValidate(senhavalor)
-   
-   if(passvalid){
-      return senhaValidate
-   } else {
-      return senhaValidate
-   }
+const passvalid = senhaValidate(password)
 
+if (passvalid) {
+   const users = {
+      email: emailvalor ,
+      senha: senhavalor
+   } 
+   guardarDados("Usuario", users )  
+} else {
+  return
+}
+
+
+   // ENVIANDO DADOS PARA O LOCAL STORAGE//
+
+ 
 });  
+
+const guardarDados = (key, value) => {
+   localStorage.setItem(key, JSON.stringify(value));
+};
 
 
 
@@ -78,3 +95,5 @@ icon.addEventListener('click' , () => {
 
 
 
+
+  
