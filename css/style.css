@@ -73,7 +73,7 @@ body {
     /* border: 1px RED solid; */
     width: 70%;
     height: 70%;
-    background-color: rgba(137, 43, 226, 0.637);
+    background-color: rgba(141, 99, 180, 0.637);
 }
 
 
@@ -251,3 +251,93 @@ form input:hover{
         background-color:var(--color-dark-100); 
     }
 }
+
+
+
+
+/* Media Queries para Responsividade */
+
+@media (max-width: 576px) {
+    .content {
+       width: 100%;
+       height: auto;
+       box-shadow: none;
+       /* ocupa todo o espaço de tela */
+    }
+
+    .form-image {
+        display: none;    
+        /* retira a div-image */
+    }
+
+    .div-form {
+        width: 100%; 
+        /* ocupa o espaço de tela */
+    }
+}
+
+@media (max-width: 680px) {
+    .content {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        /* ocupa todo o espaço de tela */
+     }
+ 
+     .form-image {
+         display: none;    
+         /* retira a div-image */
+     }
+ 
+     .div-form {
+         width: 100%; 
+         /* ocupa o espaço de tela */
+     }
+}
+
+@media (max-width: 820px) {
+    .content {
+        width: 100%; /* Ajusta a largura para notebooks */
+        box-shadow: none;
+    }
+
+    .div-form{
+        width: 100%;
+    }
+    
+
+    .form-image{
+        display: none;
+    }
+}
+
+
+@media (max-width:1000px ){
+    .content {
+        width: 100%; /* Ajusta a largura para notebooks */
+        
+    }
+
+    .div-form{
+        width: 100%;
+    }
+    
+
+    .form-image{
+        display: none;
+    }
+}
+
+@media (max-width: 1400px){
+    .content {
+        width: 100%;
+      
+    }
+}
+
+
+/* @media (min-width: 1200px) {
+    .content {
+        width: 60%; /* Ajusta a largura para desktops */
+    /* }
+} */ 
