@@ -10,10 +10,15 @@ const span = document.getElementById('mensagem')
 const secondspan = document.getElementById('mensagem2')
 const icon = document.getElementById('mode_icon')
 
+const credenciais = [];
+
+
+
 //Impede o envio do formulário -----------
 form.addEventListener('submit' ,function(event){
    event.preventDefault(); 
 // ---------------------------------------
+
 
 
 // capturar valor
@@ -44,6 +49,7 @@ const senhaValidate = (senhavalor) => {
       senhavalor.style.border = "1px solid green"
       secondspan.style.display = "none"
       return true
+      
    }
 }
    
@@ -54,23 +60,55 @@ const passvalid = senhaValidate(password)
 
 if (passvalid) {
    const users = {
+      id: userId++,
       email: emailvalor ,
       senha: senhavalor
    } 
-   guardarDados("Usuario", users )  
-} else {
-  return
-}
+   guardarDados(users.id, users )  
+} 
 
 
+
+Dados(emailvalor,senhavalor);
+
+  
    // ENVIANDO DADOS PARA O LOCAL STORAGE//
 
+      this.reset();
  
 });  
 
-const guardarDados = (key, value) => {
-   localStorage.setItem(key, JSON.stringify(value));
+function mostrarDados(){
+   for(let i = 0; i < localStorage.length; i++){
+      const key = localStorage.key(i);
+      const value = JSON.parse(localStorage.getItem(key));
+      console.log(key , value)
+   }
+}
+
+
+
+
+const guardarDados = (id, value) => {
+   const uniqueKey = `user_${id}`
+   localStorage.setItem(uniqueKey, JSON.stringify(value));
 };
+
+let userId = 0;
+
+
+function Dados(emailvalor, senhavalor){
+   const users = {
+      email: emailvalor,
+      senha: senhavalor
+   }
+   
+   
+   credenciais.push(users)
+   
+};    
+
+
 
 
 
@@ -92,7 +130,6 @@ icon.addEventListener('click' , () => {
 
    form.classList.remove('dark');
 });
-
 
 
 
